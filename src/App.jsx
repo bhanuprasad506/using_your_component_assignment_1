@@ -1,40 +1,51 @@
-import { useState } from 'react';
+import React from "react";
+import BookCard from "./components/bookcard";
+import "./App.css";
 
-function App() {
+const App = () => {
   const books = [
     {
       id: 1,
-      image:
-        'https://tse2.mm.bing.net/th?id=OIP.IIIPIPZYMBOJgxFfWGRtBAHaHa&rs=1&pid=ImgDetMain',
-      name: 'The Great Adventure',
-      genre: 'Fiction',
-      author: 'Jane Doe',
+      title: "The Great Gatsby",
+      author: "F. Scott Fitzgerald",
+      year: 1925,
+      description:
+        "A novel set in the Roaring Twenties that tells the story of Jay Gatsby's unrequited love.",
     },
     {
       id: 2,
-      image: 'https://i.thenile.io/r1000/9781496687197.jpg?r=6085750d133cf',
-      name: 'Mysteries of the Universe',
-      genre: 'Science',
-      author: 'John Smith',
+      title: "1984",
+      author: "George Orwell",
+      year: 1949,
+      description:
+        "A dystopian novel set in a totalitarian regime with constant surveillance.",
     },
     {
       id: 3,
-      image: 'https://images3.penguinrandomhouse.com/cover/9781933771106',
-      name: 'History Revisited',
-      genre: 'Non-Fiction',
-      author: 'Emily Johnson',
-    },
-    {
-      id: 4,
-      image:
-        'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1700317474i/202368563.jpg',
-      name: 'Culinary Delights',
-      genre: 'Cooking',
-      author: 'Michael Brown',
+      title: "To Kill a Mockingbird",
+      author: "Harper Lee",
+      year: 1960,
+      description:
+        "A powerful story of racial injustice in the American Deep South.",
     },
   ];
 
-  return <>{/* write code to display all the books using */}</>;
-}
+  return (
+    <div className="app">
+      <h1 className="app-title">Digital Library</h1>
+      <div className="book-list">
+        {books.map((book) => (
+          <BookCard
+            key={book.id}
+            title={book.title}
+            author={book.author}
+            year={book.year}
+            description={book.description}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default App;
